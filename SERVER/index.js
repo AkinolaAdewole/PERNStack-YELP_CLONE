@@ -111,13 +111,17 @@ App.post("/api/v1/restaurants", async(req,res)=>{
 App.put("/api/v1/restaurants/:id",(req,res)=>{
     console.log(req.params);
     console.log(req.body);
-
-    res.status(200).json({
-        status:"success",
-        data:{
-            restaurant:"Taco Bells",
-        }
-    });
+    try {
+        const result = db.query("UPDATE restaurants SET name=$1, location=$2, price_range=$3",[])
+        res.status(200).json({
+            status:"success",
+            data:{
+                restaurant:"Taco Bells",
+            }
+        });
+    } catch (error) {
+        console.error(error);
+    }
 });
 
 App.delete("/api/v1/restaurants/:id",(req,res)=>{
