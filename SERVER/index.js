@@ -14,7 +14,11 @@ App.get("/api/v1/restaurants",(req,res)=>{
 
 
 App.get("/api/v1/restaurants/:id",(req,res)=>{
-    console.log(req);
+    console.log(req.params);
+});
+
+App.post("/api/v1/restaurants",(req,res)=>{
+    console.log(req.params);
 });
 
 const port = process.env.PORT || 5002;
