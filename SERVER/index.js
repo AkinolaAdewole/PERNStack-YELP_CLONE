@@ -126,12 +126,22 @@ App.put("/api/v1/restaurants/:id",async(req,res)=>{
     }
 });
 
-App.delete("/api/v1/restaurants/:id",(req,res)=>{
-    console.log(`success`);
-    res.status(200).json({
-        status:"success",
-    })
-})
+App.delete("/api/v1/restaurants/:id", async(req,res)=>{
+    // DELETE FROM restaurants WHERE id=7;
+    try {
+        const result= await db.query("DELETE FROM restaurants WHERE id=$1",[req.params.id])
+        console.log(`success`);
+        res.status(200).json({
+            status:"success",
+        })
+    } catch (error) {
+        console.error(error);
+    }
+   
+});
+
+
+
 
 const port = process.env.PORT || 5002;
 App.listen(port,()=>{
