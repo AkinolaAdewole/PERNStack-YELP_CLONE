@@ -29,7 +29,6 @@ App.get("/api/v1/restaurants", async(req,res)=>{
 
     try {
         const result = await db.query("SELECT * FROM  restaurants");
-        console.log(result);
         res.status(200).json({
             status:"success",
             result:result.rows.length,
@@ -37,6 +36,7 @@ App.get("/api/v1/restaurants", async(req,res)=>{
                 restaurants:result.rows, 
             }
         });
+        console.log(result);
        } catch (error) {
         console.log(error);
        }
@@ -45,14 +45,27 @@ App.get("/api/v1/restaurants", async(req,res)=>{
 });
 
 
-App.get("/api/v1/restaurants/:id",(req,res)=>{
+App.get("/api/v1/restaurants/:id",async(req,res)=>{
     console.log(req.params);
-    res.status(200).json({
-        status:"success",
-        data:{
-            restaurant:"Taco Bells",
-        }
-    });
+    try {
+        const result = await db.query(`SELECT * FROM  restaurants WHERE id = ${req.params.id}`);
+        res.status(200).json({
+            status:"success",
+            data:{
+                restaurant:result.params.id,
+            }
+        });
+        console.log(result.rows);
+    } catch (error) {
+        console.error(error);;
+    }
+
+    // res.status(200).json({
+    //     status:"success",
+    //     data:{
+    //         restaurant:"Taco Bells",
+    //     }
+    // });
 });
 
 App.post("/api/v1/restaurants",(req,res)=>{
