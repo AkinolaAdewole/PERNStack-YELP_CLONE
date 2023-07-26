@@ -27,7 +27,9 @@ const AddRestaurant = () => {
                                 </select>
                             </div>
 
-                      <button className="btn btn-primary">Add</button>
+                      <div className="col">
+                       <button className="btn btn-primary">Add</button>
+                      </div>
                 </div>
             </form>
          </div>
