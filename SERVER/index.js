@@ -51,7 +51,8 @@ App.get("/api/v1/restaurants/:id", async (req, res) => {
     // Use parameterized query to avoid SQL injection
     try {
       const id = req.params.id;
-      const columnName = 'name'; // The dynamic column name you want to fetch
+      // The dynamic column name you want to fetch
+      const columnName = 'name'; 
   
       // Construct the SQL query with the column name directly
       const query = `SELECT ${columnName} FROM restaurants WHERE id = $1`;
@@ -89,7 +90,20 @@ App.get("/api/v1/restaurants/:id", async (req, res) => {
     
 
 
-App.post("/api/v1/restaurants",(req,res)=>{
+App.post("/api/v1/restaurants", async(req,res)=>{
+    try {
+        const result = await db.query("INSERT INTO restaurants(name, location, price_range) values ($1, $2, $3) returning *",
+         [req.body.name, req.body.location, req.body.price_range] )
+         console.log(result);
+         res.status(200).json({
+            status:"success",
+            data:{
+                restaurant:result.rows[0],
+            }
+         })
+    } catch (error) {
+        console.error(error);
+    }
     console.log(req.body);
 });
 
