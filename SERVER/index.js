@@ -46,6 +46,13 @@ App.post("/api/v1/restaurants",(req,res)=>{
 App.put("/api/v1/restaurants/:id",(req,res)=>{
     console.log(req.params);
     console.log(req.body);
+
+    res.status(200).json({
+        status:"success",
+        data:{
+            restaurant:"Taco Bells",
+        }
+    });
 })
 
 const port = process.env.PORT || 5002;
