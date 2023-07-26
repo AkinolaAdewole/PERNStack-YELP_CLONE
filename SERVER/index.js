@@ -111,8 +111,8 @@ App.post("/api/v1/restaurants", async(req,res)=>{
 App.put("/api/v1/restaurants/:id",(req,res)=>{
     console.log(req.body);
     try {
-        const result = db.query("UPDATE restaurants SET name=$1, location=$2, price_range=$3",
-        [req.body.name, req.body.location, req.body.price_range])
+        const result = db.query("UPDATE restaurants SET name=$1, location=$2, price_range=$3 WHERE id=$4",
+        [req.body.name, req.body.location, req.body.price_range, req.params.id])
         res.status(200).json({
             status:"success",
             data:{
