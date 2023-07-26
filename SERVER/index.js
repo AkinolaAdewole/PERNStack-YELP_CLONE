@@ -49,10 +49,11 @@ App.get("/api/v1/restaurants/:id",async(req,res)=>{
     console.log(req.params);
 
     try {
-        const id = req.params.id;
+        // const id = req.params.id;
       
         // Use parameterized query to avoid SQL injection
-        const result = await db.query('SELECT * FROM restaurants WHERE id = $1', [id]);
+        const result = await db.query('SELECT * FROM $2 WHERE id = $1', 
+        [req.params.id,"name"]);
       
         if (result.rows.length === 0) {
           return res.status(404).json({
