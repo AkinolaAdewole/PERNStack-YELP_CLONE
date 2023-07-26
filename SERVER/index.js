@@ -66,6 +66,13 @@ App.get("/api/v1/restaurants/:id", async (req, res) => {
         });
       }
   
+      // res.status(200).json({
+    //     status:"success",
+    //     data:{
+    //         restaurant:"Taco Bells",
+    //     }
+    // });
+
       res.status(200).json({
         status: 'success',
         data: {
