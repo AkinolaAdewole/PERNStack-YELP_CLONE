@@ -47,18 +47,31 @@ App.get("/api/v1/restaurants", async(req,res)=>{
 
 App.get("/api/v1/restaurants/:id",async(req,res)=>{
     console.log(req.params);
+
     try {
-        const result = await db.query(`SELECT * FROM  restaurants WHERE id = ${req.params.id}`);
+        const id = req.params.id;
+      
+        // Use parameterized query to avoid SQL injection
+        const result = await db.query('SELECT * FROM restaurants WHERE id = $1', [id]);
+      
+        if (result.rows.length === 0) {
+          return res.status(404).json({
+            status: 'error',
+            message: 'Restaurant not found',
+          });
+        }
+      
         res.status(200).json({
-            status:"success",
-            data:{
-                restaurant:result.params.id,
-            }
+          status: 'success',
+          data: {
+            restaurant: result.rows[0],
+          },
         });
+      
         console.log(result.rows);
-    } catch (error) {
-        console.error(error);;
-    }
+      } catch (error) {
+        console.error(error);
+      }
 
     // res.status(200).json({
     //     status:"success",
