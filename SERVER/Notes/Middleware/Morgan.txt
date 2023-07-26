@@ -24,13 +24,20 @@ app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
 
+
 In this example, we've added morgan('dev') as middleware using app.use(). The argument 'dev' is one of the pre-defined formats provided 
 by morgan, and it logs concise output like this:
 
 GET /api/users 200 15.899 ms - 55
 
 
-morgan is a popular middleware for Node.js and Express.js that provides HTTP request logging functionality. It automatically logs incoming HTTP requests and their details to the console or to a log file. This makes it useful for monitoring and debugging purposes, as it helps you track incoming requests and understand what's happening in your application.
+
+
+
+
+morgan is a popular middleware for Node.js and Express.js that provides HTTP request logging functionality. 
+It automatically logs incoming HTTP requests and their details to the console or to a log file. This makes it useful for monitoring and 
+debugging purposes, as it helps you track incoming requests and understand what's happening in your application.
 
 To use morgan, you first need to install it in your Node.js project:
 
@@ -55,7 +62,10 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-In this example, we've added morgan('dev') as middleware using app.use(). The argument 'dev' is one of the pre-defined formats provided by morgan, and it logs concise output like this:
+
+
+In this example, we've added morgan('dev') as middleware using app.use(). The argument 'dev' is one of the pre-defined formats provided 
+by morgan, and it logs concise output like this:
 
 bash
 Copy code
@@ -75,4 +85,20 @@ can use:
 'common': Standard Apache common log format
 'short': Shorter version of the 'combined' format
 'tiny': Minimal output, good for production
+
 You can also create your custom logging format using a callback function. For example:
+
+app.use(morgan((tokens, req, res) => {
+  return `${tokens.method(req, res)} ${tokens.url(req, res)} - ${tokens.status(req, res)} - ${tokens['response-time'](req, res)} ms`;
+}));
+
+
+In this case, we are logging the HTTP method, URL, status, and response time in a custom format.
+
+morgan is a powerful and convenient middleware for keeping track of HTTP requests in your Node.js and Express.js applications, and 
+it's widely used in the Node.js ecosystem.
+
+
+
+
+
