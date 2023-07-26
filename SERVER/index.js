@@ -2,6 +2,11 @@ require("dotenv").config();
 const express = require ("express");
 const App = express();
 
+App.use((req,res,next)=>{
+    console.log(`Middleware is active`);
+    next();
+})
+
 
 App.get("/api/v1/restaurants",(req,res)=>{
     res.status(200).json({
