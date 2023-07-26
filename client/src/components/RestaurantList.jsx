@@ -4,7 +4,7 @@ const RestaurantList = () => {
   return (
     <>
     <div>
-        <table class="table">
+        <table class="table table-hover table-dark">
             <thead>
                 <tr>
                 <th scope="col">Restaurant</th>
@@ -18,21 +18,24 @@ const RestaurantList = () => {
 
             <tbody>
                 <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                    <td></td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td><button className="btn btn-warning">Edit</button></td>
+                    <td><button className="btn btn-danger">Delete</button></td>
                 </tr>
                 <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
+                    <td>2</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
                 </tr>
+
                 <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
                 </tr>
             </tbody>
         </table>
