@@ -47,3 +47,16 @@ app.listen(PORT, () => {
 });
 
 
+In this example, we define two middleware functions: logMiddleware and checkAuthMiddleware. The logMiddleware logs the request method and 
+URL to the console, and the checkAuthMiddleware checks if the request has an "Authorization" header. If the header is missing, it sends a 
+401 Unauthorized response; otherwise, it moves on to the next middleware or route handler.
+
+We register the logMiddleware globally using app.use() to apply it to all routes. For the /protected route, we use checkAuthMiddleware to 
+ensure that only authorized requests can access the route.
+
+When a request is made to the server, it first goes through the logMiddleware, then the checkAuthMiddleware (if accessing the /protected 
+route), and finally, the appropriate route handler based on the requested URL.
+
+Keep in mind that the order of middleware registration is crucial, as they are executed in the order they are defined. Also, remember to 
+call next() within each middleware to pass control to the next middleware in the chain. If next() is not called, the request will get stuck,
+and the response will never be sent.

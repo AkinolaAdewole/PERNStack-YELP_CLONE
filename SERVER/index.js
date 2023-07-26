@@ -3,8 +3,11 @@ const express = require ("express");
 const App = express();
 
 App.use((req,res,next)=>{
-    console.log(`Middleware is active`);
     next();
+    res.status(200).json({
+        status:200
+    })
+    console.log(`Middleware is active`);
 })
 
 
