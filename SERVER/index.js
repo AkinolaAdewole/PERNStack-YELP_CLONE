@@ -108,15 +108,17 @@ App.post("/api/v1/restaurants", async(req,res)=>{
 });
 
 //Update
-App.put("/api/v1/restaurants/:id",(req,res)=>{
+App.put("/api/v1/restaurants/:id",async(req,res)=>{
+    // UPDATE restaurants SET name = 'Mr Biggs', location = 'Oyo', price_range = 5 WHERE id=5;
     console.log(req.body);
     try {
-        const result = db.query("UPDATE restaurants SET name=$1, location=$2, price_range=$3 WHERE id=$4",
+        const result = await db.query("UPDATE restaurants SET name=$1, location=$2, price_range=$3 WHERE id=$4 returning *",
         [req.body.name, req.body.location, req.body.price_range, req.params.id])
+        console.log(result);
         res.status(200).json({
             status:"success",
             data:{
-                restaurant:"Taco Bells",
+                restaurant:result.rows[0],
             }
         });
     } catch (error) {
