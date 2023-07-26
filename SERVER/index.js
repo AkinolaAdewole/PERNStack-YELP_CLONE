@@ -53,6 +53,13 @@ App.put("/api/v1/restaurants/:id",(req,res)=>{
             restaurant:"Taco Bells",
         }
     });
+});
+
+App.delete("/api/v1/restaurants/:id",(req,res)=>{
+    console.log(`success`);
+    res.status(200).json({
+        status:"success",
+    })
 })
 
 const port = process.env.PORT || 5002;
