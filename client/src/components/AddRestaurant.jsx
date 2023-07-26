@@ -7,7 +7,11 @@ const AddRestaurant = () => {
             <form action="">
                 <div className='form-row'>
                     <div className='col'>
-                        
+                        <input type="text" className='form-control' />
+                    </div>
+
+                    <div className='col'>
+                        <input type="text" className='form-control' />
                     </div>
                 </div>
             </form>
