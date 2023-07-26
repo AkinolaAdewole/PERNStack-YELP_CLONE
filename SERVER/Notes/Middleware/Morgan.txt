@@ -1,0 +1,25 @@
+morgan is a popular middleware for Node.js and Express.js that provides HTTP request logging functionality. It automatically logs 
+incoming HTTP requests and their details to the console or to a log file. This makes it useful for monitoring and debugging purposes, 
+as it helps you track incoming requests and understand what's happening in your application.
+
+To use morgan, you first need to install it in your Node.js project:
+
+npm install morgan
+
+
+Once installed, you can use it in your Express.js application like this:
+
+const express = require('express');
+const morgan = require('morgan');
+
+const app = express();
+
+// Use morgan middleware to log HTTP requests to the console
+app.use(morgan('dev'));
+
+// Your other routes and middleware would go here
+
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
