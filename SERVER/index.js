@@ -45,42 +45,42 @@ App.get("/api/v1/restaurants", async(req,res)=>{
 });
 
 
-App.get("/api/v1/restaurants/:id",async(req,res)=>{
+App.get("/api/v1/restaurants/:id", async (req, res) => {
     console.log(req.params);
-
+  
+    // Use parameterized query to avoid SQL injection
     try {
-        // const id = req.params.id;
-      
-        // Use parameterized query to avoid SQL injection
-        const result = await db.query('SELECT * FROM $2 WHERE id = $1', 
-        [req.params.id,"name"]);
-      
-        if (result.rows.length === 0) {
-          return res.status(404).json({
-            status: 'error',
-            message: 'Restaurant not found',
-          });
-        }
-      
-        res.status(200).json({
-          status: 'success',
-          data: {
-            restaurant: result.rows[0],
-          },
+      const id = req.params.id;
+      const columnName = 'name'; // The dynamic column name you want to fetch
+  
+      // Construct the SQL query with the column name directly
+      const query = `SELECT ${columnName} FROM restaurants WHERE id = $1`;
+  
+      // Use parameterized query to avoid SQL injection
+      const result = await db.query(query, [id]);
+  
+      if (result.rows.length === 0) {
+        return res.status(404).json({
+          status: 'error',
+          message: 'Restaurant not found',
         });
-      
-        console.log(result.rows);
-      } catch (error) {
-        console.error(error);
       }
+  
+      res.status(200).json({
+        status: 'success',
+        data: {
+          restaurant: result.rows[0],
+        },
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  });
+  
+          
 
-    // res.status(200).json({
-    //     status:"success",
-    //     data:{
-    //         restaurant:"Taco Bells",
-    //     }
-    // });
-});
+    
+
 
 App.post("/api/v1/restaurants",(req,res)=>{
     console.log(req.body);
