@@ -1,0 +1,50 @@
+node-postgres is a collection of node.js modules for interfacing with your PostgreSQL database. 
+It has support for callbacks, promises, async/await, connection pooling, prepared statements, cursors, streaming results, 
+C/C++ bindings, rich type parsing, and more! Just like PostgreSQL itself there are a lot of features: this documentation aims to get 
+you up and running quickly and in the right direction. It also tries to provide guides for more advanced & edge-case topics allowing you 
+to tap into the full power of PostgreSQL from node.js.
+
+Getting started
+
+The simplest possible way to connect, query, and disconnect is with async/await:
+
+import { Client } from 'pg'
+const client = new Client()
+await client.connect()
+ 
+const res = await client.query('SELECT $1::text as message', ['Hello world!'])
+console.log(res.rows[0].message) // Hello world!
+await client.end()
+
+2. Error Handling
+For the sake of simplicity, these docs will assume that the methods are successful. In real life use, make sure to properly handle errors 
+thrown in the methods. A try/catch block is a great way to do so:
+
+import { Client } from 'pg'
+const client = new Client()
+await client.connect()
+ 
+try {
+   const res = await client.query('SELECT $1::text as message', ['Hello world!'])
+   console.log(res.rows[0].message) // Hello world!
+} catch (err) {
+   console.error(err);
+} finally {
+   await client.end()
+}
+
+
+3. Callbacks
+If you prefer a callback-style approach to asynchronous programming, all async methods support an optional callback parameter as well:
+
+import { Client } from 'pg'
+const client = new Client()
+ 
+client.connect((err) => {
+   client.query('SELECT $1::text as message', ['Hello world!'], (err, res) => {
+     console.log(err ? err.stack : res.rows[0].message) // Hello World!
+     client.end()
+   })
+})
+ 
+Our real-world apps are almost always more complicated than that, and I urge you to read on!
