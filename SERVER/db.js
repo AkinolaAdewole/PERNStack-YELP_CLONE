@@ -1,11 +1,5 @@
-const Pool =require("pg");
+const Pool =require("pg").Pool;
  
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'yelpclone',
-  password: 'Stef@nos.100',
-  port: 5200,
-});
+const pool = new Pool();
 
 module.exports ={ query : (text, params) => pool.query(text, params)};
