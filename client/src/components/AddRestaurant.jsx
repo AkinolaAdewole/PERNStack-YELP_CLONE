@@ -6,12 +6,12 @@ const AddRestaurant = () => {
          <div className='mb-4'>
             <form action="">
                 <div className='form-row'>
-                        <div className='form-group col-md-6'>
+                        <div className='col'>
                             <input type="text" className='form-control' 
                             placeholder='Name'/>
                         </div>
 
-                        <div className='form-group col-md-6'>
+                        <div className='col'>
                             <input type="text" className='form-control' 
                             placeholder='location'/>
                         </div>
