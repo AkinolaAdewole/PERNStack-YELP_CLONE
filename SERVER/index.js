@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require ("express");
 const morgan= require("morgan");
 const App = express();
+const db = require("./db");
 
 // Middleware
 // App.use(morgan("dev"));
