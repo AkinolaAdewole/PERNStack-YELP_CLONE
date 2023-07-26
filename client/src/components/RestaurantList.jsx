@@ -30,12 +30,15 @@ const RestaurantList = () => {
                     <td>Jacob</td>
                     <td>Thornton</td>
                     <td>@fat</td>
+                    <td></td>
+                    <td></td>
                 </tr>
 
                 <tr>
                     <th scope="row">3</th>
                     <td colspan="2">Larry the Bird</td>
                     <td>@twitter</td>
+                    <td></td>
                 </tr>
             </tbody>
         </table>
