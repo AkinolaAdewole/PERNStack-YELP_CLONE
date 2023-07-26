@@ -1,0 +1,14 @@
+Retreive All Restaurants  GET Request
+/api/v1/restaurants
+
+Retreive one restaurant GET Request
+/api/v1/restaurants/:id
+
+Create restaurant POST
+/api/v1/restaurants
+
+Update    PUT
+/api/v1/restaurants/:id
+
+Delete restaurant
+/api/v1/restaurants/:id
