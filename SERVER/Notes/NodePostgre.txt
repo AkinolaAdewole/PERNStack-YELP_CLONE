@@ -4,6 +4,9 @@ C/C++ bindings, rich type parsing, and more! Just like PostgreSQL itself there a
 you up and running quickly and in the right direction. It also tries to provide guides for more advanced & edge-case topics allowing you 
 to tap into the full power of PostgreSQL from node.js.
 
+npm install pg
+
+
 Getting started
 
 The simplest possible way to connect, query, and disconnect is with async/await:
@@ -45,6 +48,6 @@ client.connect((err) => {
      console.log(err ? err.stack : res.rows[0].message) // Hello World!
      client.end()
    })
-})
+});
  
 Our real-world apps are almost always more complicated than that, and I urge you to read on!
