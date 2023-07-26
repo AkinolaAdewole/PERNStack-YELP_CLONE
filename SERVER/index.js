@@ -3,16 +3,20 @@ const express = require ("express");
 const morgan= require("morgan");
 const App = express();
 
-
-App.use((req,res,next)=>{
-    next();
-    res.status(200).json({
-        status:200
-    })
-    console.log(`Middleware is active`);
-})
+// Middleware
+App.use(morgan("dev"));
 
 
+// App.use((req,res,next)=>{
+//     next();
+//     res.status(200).json({
+//         status:200
+//     })
+//     console.log(`Middleware is active`);
+// })
+
+
+// Routes
 App.get("/api/v1/restaurants",(req,res)=>{
     res.status(200).json({
         status:"success",
