@@ -3,7 +3,7 @@ const express = require ("express");
 const App = express();
 
 
-const port = 5000;
+const port = process.env.PORT || 5002;
 App.listen(port,()=>{
     console.log(`Server is connected at port ${port}`);
 });
