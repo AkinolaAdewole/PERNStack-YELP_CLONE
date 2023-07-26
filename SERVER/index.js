@@ -32,7 +32,6 @@ App.get("/api/v1/restaurants/:id",(req,res)=>{
 });
 
 App.post("/api/v1/restaurants",(req,res)=>{
-    console.log(req.params);
 });
 
 const port = process.env.PORT || 5002;
