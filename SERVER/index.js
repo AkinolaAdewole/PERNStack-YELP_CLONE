@@ -12,6 +12,11 @@ App.get("/api/v1/restaurants",(req,res)=>{
     });
 });
 
+
+App.get("/api/v1/restaurants/:id",(req,res)=>{
+    console.log(req);
+});
+
 const port = process.env.PORT || 5002;
 App.listen(port,()=>{
     console.log(`Server is connected at port ${port}`);
