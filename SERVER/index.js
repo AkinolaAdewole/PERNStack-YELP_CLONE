@@ -20,16 +20,28 @@ App.use(express.json());
 
 // Routes
 App.get("/api/v1/restaurants", async(req,res)=>{
-    const result = await db.query("SELECT * FROM  restaurants");
-    res.send(result)
-    console.log(result);
-
     // res.status(200).json({
     //     status:"success",
     //     data:{
     //         restaurant:["MacDonalds", "Wendy"],
     //     }
     // });
+
+    try {
+        const result = await db.query("SELECT * FROM  restaurants");
+        console.log(result);
+        res.status(200).json({
+            status:"success",
+            result:result.rows.length,
+            data:{
+                restaurants:result.rows, 
+            }
+        });
+       } catch (error) {
+        console.log(error);
+       }
+
+  
 });
 
 
