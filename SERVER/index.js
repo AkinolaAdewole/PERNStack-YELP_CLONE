@@ -4,8 +4,7 @@ const morgan= require("morgan");
 const App = express();
 
 // Middleware
-App.use(morgan("dev"));
-
+// App.use(morgan("dev"));
 
 // App.use((req,res,next)=>{
 //     next();
@@ -14,6 +13,8 @@ App.use(morgan("dev"));
 //     })
 //     console.log(`Middleware is active`);
 // })
+
+App.use(express.json());
 
 
 // Routes
@@ -29,10 +30,23 @@ App.get("/api/v1/restaurants",(req,res)=>{
 
 App.get("/api/v1/restaurants/:id",(req,res)=>{
     console.log(req.params);
+    res.status(200).json({
+        status:"success",
+        data:{
+            restaurant:"Taco Bells",
+        }
+    });
 });
 
 App.post("/api/v1/restaurants",(req,res)=>{
+    console.log(req.body);
 });
+
+//Update
+App.put("/api/v1/restaurants/:id",(req,res)=>{
+    console.log(req.params);
+    console.log(req.body);
+})
 
 const port = process.env.PORT || 5002;
 App.listen(port,()=>{
