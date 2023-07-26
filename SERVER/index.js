@@ -1,6 +1,8 @@
 require("dotenv").config();
 const express = require ("express");
+const morgan= require("morgan");
 const App = express();
+
 
 App.use((req,res,next)=>{
     next();
