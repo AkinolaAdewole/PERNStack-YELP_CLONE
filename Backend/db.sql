@@ -10,11 +10,11 @@
  ALTER TABLE products ADD COLUMN feature BOOLEAN;
  ALTER TABLE products DROP COLUMN feature;
 
- 
+
 
  CREATE TABLE restaurants(
-    id INT PRIMARY KEY,
-    name VARCHAR(100),
-    location VARCHAR(100),
-    price_range INT
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    location VARCHAR(100) NOT NULL,
+    price_range INT NOT NULL
  );
