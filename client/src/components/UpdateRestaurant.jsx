@@ -15,21 +15,24 @@ const UpdateRestaurant = (props) => {
          <form>
             <div className='form-group mb-3'>
                 <label htmlFor="name">Name</label>
-                <input type="text" className='form-control' placeholder='Name' />
+                <input type="text" className='form-control' value={name} 
+                  onChange={(e)=>setName(e.target.value)} placeholder='Name' />
             </div>
 
             <div className='form-group mb-3'>
                 <label htmlFor="name">Location</label>
-                <input type="text" className='form-control' placeholder='Location' />
+                <input type="text" className='form-control' value={location} 
+                   onChange={(e)=>setlocation(e.target.value)} placeholder='Location' />
             </div>
 
             <div className='form-group mb-3'>
                 <label htmlFor="name">Price Range</label>
-                <input type="number" placeholder='Price range' className='form-control' />
+                <input type="number" placeholder='Price range' value={priceRange}
+                   onChange={(e)=>setPriceRange(e.target.value)} className='form-control' />
             </div>
 
             <div>
-                <button className="btn btn-primary">Update</button>
+                <button className="btn btn-primary" onClick={()=>handleUpdate()}>Update</button>
             </div>
          </form>
     </div>
