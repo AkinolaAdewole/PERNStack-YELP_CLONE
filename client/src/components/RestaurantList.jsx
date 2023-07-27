@@ -44,6 +44,9 @@ const RestaurantList = () => {
     }
   }
 
+  const handleRestaurantSelect=(id)=>{
+    navigate(`/restaurant/${id}`);
+  }
   return (
     <>
       <div className='list-group'>
@@ -60,13 +63,13 @@ const RestaurantList = () => {
           </thead>
           <tbody>
             {restaurants && restaurants.map((restaurant) => (
-              <tr key={restaurant.id}>
+              <tr onClick={()=>handleRestaurantSelect(restaurant.id)} key={restaurant.id}>
                 <td>{restaurant.name}</td>
                 <td>{restaurant.location}</td>
                 <td>{"$".repeat(restaurant.price_range)}</td>
                 <td>Rating</td>
-                <td><button onClick={()=>handleUpdate(restaurant.id)} className="btn btn-warning">Edit</button></td>
-                 <td> <button onClick={() => handleDelete(restaurant.id)} className="btn btn-danger">Delete</button> </td> 
+                <td><button onClick={(e)=>handleUpdate(restaurant.id)} className="btn btn-warning">Edit</button></td>
+                 <td> <button onClick={(e) => handleDelete(restaurant.id)} className="btn btn-danger">Delete</button> </td> 
                 {/* <td><button onClick={()=>handleDelete(restaurant.id)} className="btn btn-danger">Delete</button></td> */}
               </tr>
             ))}
