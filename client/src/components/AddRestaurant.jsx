@@ -4,6 +4,8 @@ const AddRestaurant = () => {
   const[name, setName]=useState("");
   const[location, setLocation]=useState("");
   const[priceRange, setPriceRange]=useState("");
+
+  const handleSubmit=()=>{}
   return (
     <div>
          <div className='mb-4'>
@@ -33,7 +35,7 @@ const AddRestaurant = () => {
                             </div>
 
                       <div className="col">
-                       <button className="btn btn-primary">Add</button>
+                        <button onClick={handleSubmit} className="btn btn-primary">Add</button>
                       </div>
                 </div>
             </form>
