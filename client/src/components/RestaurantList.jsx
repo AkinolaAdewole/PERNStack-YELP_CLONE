@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import RestaurantFinder from '../Api/RestaurantFinder';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { RestaurantContext } from '../ContextApi/RestaurantContextProvider';
 
 // // useEffect is used to fetch data from the server when the component mounts for the first time. 
@@ -10,8 +10,7 @@ import { RestaurantContext } from '../ContextApi/RestaurantContextProvider';
 const RestaurantList = () => {
   const { restaurants, setRestaurants } = useContext(RestaurantContext);
 
-  let params=useParams;
-  const history = useHistory();
+  let navigate = useNavigate
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +27,7 @@ const RestaurantList = () => {
   }, []);
 
   const handleUpdate=(id)=>{
-    history.push(`/restaurant/${id}/update`)
+    navigate(`/restaurant/${id}/update`);
   }
 
   const handleDelete= async(id)=>{
@@ -65,7 +64,7 @@ const RestaurantList = () => {
                 <td>{restaurant.location}</td>
                 <td>{"$".repeat(restaurant.price_range)}</td>
                 <td>Rating</td>
-                <td><button className="btn btn-warning">Edit</button></td>
+                <td><button onClick={()=>handleUpdate(restaurant.id)} className="btn btn-warning">Edit</button></td>
                  <td> <button onClick={() => handleDelete(restaurant.id)} className="btn btn-danger">Delete</button> </td> 
                 {/* <td><button onClick={()=>handleDelete(restaurant.id)} className="btn btn-danger">Delete</button></td> */}
               </tr>
