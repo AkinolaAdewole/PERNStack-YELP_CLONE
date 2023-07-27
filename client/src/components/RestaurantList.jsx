@@ -35,10 +35,10 @@ const RestaurantList = () => {
                     </tr>
 
                     <tr>
-                        <td>3</td>
-                        <td>Larry the Bird</td>
+                        <td>Ckicken Republic</td>
+                        <td>Ogbomoso</td>
                         <td>@twitter</td>
-                        <td></td>
+                        <td>Rating</td>
                         <td><button className="btn btn-warning">Edit</button></td>
                         <td><button className="btn btn-danger">Delete</button></td>
                     </tr>
