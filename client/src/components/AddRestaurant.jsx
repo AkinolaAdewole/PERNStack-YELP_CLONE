@@ -6,14 +6,14 @@ const AddRestaurant = () => {
   const[location, setLocation]=useState("");
   const[priceRange, setPriceRange]=useState("");
 
-  const handleSubmit=(e)=>{
+  const handleSubmit= async(e)=>{
     e.preventDefault();
     try {
-      RestaurantFinder.post("/",{
-        name,
-        location,
-        price_range:priceRange
-      })
+     const response= await RestaurantFinder.post("/",{
+                        name,
+                        location,
+                        price_range:priceRange
+                      });
     } catch (error) {
       
     }
