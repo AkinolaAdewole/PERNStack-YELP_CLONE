@@ -4,7 +4,9 @@ const StarRating = ({rating}) => {
     const stars=[];
     for(let i=1; i<=5; i++){
         if(i<=rating){
-            stars.push(<FontAwesomeIcon icon="fa-sharp fa-solid fa-star" />)
+            stars.push(<i class="fa-solid fa-star"></i>)
+        } else{
+            stars.push(<i class="fa-regular fa-star"></i>);
         }
     }
 
@@ -12,8 +14,14 @@ const StarRating = ({rating}) => {
     //     <FontAwesomeIcon key={index} icon={index < rating ? faStar : ["far", "star"]} />
     //   ));
 
+    // const stars = [...Array(maxRating)].map((_, index) => (
+    //     <FontAwesomeIcon key={index} icon={index < rating ? solidStar : regularStar} />
+    //   ));
+
   return (
-    <div>StarRating</div>
+    <>
+      <div>{stars}</div>
+    </>
   )
 }
 
