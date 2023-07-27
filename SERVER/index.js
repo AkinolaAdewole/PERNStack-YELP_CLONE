@@ -57,7 +57,7 @@ App.get("/api/v1/restaurants/:id", async (req, res) => {
       const columnName = 'name'; 
   
       // Construct the SQL query with the column name directly
-      const query = `SELECT ${columnName} FROM restaurants WHERE id = $1`;
+      const query = `SELECT * FROM restaurants WHERE id = $1`;
   
       // Use parameterized query to avoid SQL injection
       const result = await db.query(query, [id]);
