@@ -6,13 +6,13 @@ const RestaurantList = () => {
     <div>
         <table class="table table-hover table-dark">
             <thead>
-                <tr>
-                <th scope="col">Restaurant</th>
-                <th scope="col">Location</th>
-                <th scope="col">Price Range</th>
-                <th scope="col">Ratings</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
+                <tr className='bg-primary'>
+                    <th scope="col">Restaurant</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Price Range</th>
+                    <th scope="col">Ratings</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
 
@@ -35,9 +35,11 @@ const RestaurantList = () => {
                 </tr>
 
                 <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
+                    <td>3</td>
+                    <td>Larry the Bird</td>
                     <td>@twitter</td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                 </tr>
             </tbody>
