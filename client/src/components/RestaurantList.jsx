@@ -3,12 +3,14 @@ import RestaurantFinder from '../Api/RestaurantFinder'
 
 const RestaurantList = () => {
 
-    useEffect ( async()=>{
-        try {
-            const response= await RestaurantFinder.get("/");
-            console.log(response);
-        } catch (error) {
-            console.error(error);
+    useEffect ( ()=>{
+      const fetchData= async()=>{
+            try {
+                const response= await RestaurantFinder.get("/");
+                console.log(response);
+            } catch (error) {
+                console.error(error);
+            }
         }
     },[])
   return (
