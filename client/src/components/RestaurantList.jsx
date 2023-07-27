@@ -38,11 +38,11 @@ const RestaurantList = () => {
                 </thead>
 
                 <tbody>
-                     {restaurants.map((restaurant)=>(
-                        <tr>
+                     {restaurants && restaurants.map((restaurant)=>(
+                        <tr key={restaurant.id}>
                             <td>{restaurant.name}</td>
-                            <td>New York</td>
-                            <td>$$</td>
+                            <td>{restaurant.location}</td>
+                            <td>{"$".repeat(restaurant.price_range)}</td>
                             <td>Rating</td>
                             <td><button className="btn btn-warning">Edit</button></td>
                             <td><button className="btn btn-danger">Delete</button></td>
