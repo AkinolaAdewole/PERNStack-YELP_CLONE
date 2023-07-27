@@ -27,11 +27,13 @@ const RestaurantList = () => {
   }, []);
 
 
-  const handleUpdate=(id)=>{
+  const handleUpdate=(e,id)=>{
+    e.stopPropagation();
     navigate(`/restaurant/${id}/update`);
   }
 
-  const handleDelete= async(id)=>{
+  const handleDelete= async(e,id)=>{
+    e.stopPropagation();
     try {
         const response= await RestaurantFinder.delete(`/${id}`);
         setRestaurants(restaurants.filter((restaurant)=>{
@@ -68,8 +70,8 @@ const RestaurantList = () => {
                 <td>{restaurant.location}</td>
                 <td>{"$".repeat(restaurant.price_range)}</td>
                 <td>Rating</td>
-                <td><button onClick={(e)=>handleUpdate(restaurant.id)} className="btn btn-warning">Edit</button></td>
-                 <td> <button onClick={(e) => handleDelete(restaurant.id)} className="btn btn-danger">Delete</button> </td> 
+                <td><button onClick={(e)=>handleUpdate(e,restaurant.id)} className="btn btn-warning">Edit</button></td>
+                 <td> <button onClick={(e) => handleDelete(e,restaurant.id)} className="btn btn-danger">Delete</button> </td> 
                 {/* <td><button onClick={()=>handleDelete(restaurant.id)} className="btn btn-danger">Delete</button></td> */}
               </tr>
             ))}
