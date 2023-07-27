@@ -2,6 +2,11 @@ import React, { useContext, useEffect } from 'react'
 import RestaurantFinder from '../Api/RestaurantFinder'
 import { RestaurantContext } from '../ContextApi/RestaurantContextProvider'
 
+
+// useEffect is used to fetch data from the server when the component mounts for the first time. 
+// The fetched data is then stored in the restaurants state variable using the setRestaurants function, which may be used to update 
+// the component's UI based on the received data. The effect runs only once because the dependency array is empty.
+
 const RestaurantList = () => {
     const {restaurants, setRestaurants}=useContext(RestaurantContext);
 
