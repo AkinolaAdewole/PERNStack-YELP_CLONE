@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { RestaurantContext } from '../ContextApi/RestaurantContextProvider';
 import RestaurantFinder from '../Api/RestaurantFinder';
 
 const UpdateRestaurant = (props) => {
     const { id } = useParams();
     const { restaurants } = useContext(RestaurantContext);
+    const navigate=useNavigate();
 
     const [name, setName] = useState("");
     const [location, setLocation] = useState("");
@@ -29,7 +30,18 @@ const UpdateRestaurant = (props) => {
     }, [id]);
     
 
-    const handleUpdate = () => {}
+    const handleUpdate = async(e) => {
+        e.preventDefault();
+
+        const updatedRestaurant= await RestaurantFinder.put(`/${id}`,{
+            name,
+            location,
+            price_range:priceRange
+        });
+        navigate("/")
+        console.log(updatedRestaurant);
+
+    };
 
   return (
     <div>
@@ -57,7 +69,7 @@ const UpdateRestaurant = (props) => {
             </div>
 
             <div>
-                <button className="btn btn-primary" onClick={()=>handleUpdate()}>Update</button>
+                <button className="btn btn-primary" onClick={handleUpdate}>Update</button>
             </div>
          </form>
     </div>
