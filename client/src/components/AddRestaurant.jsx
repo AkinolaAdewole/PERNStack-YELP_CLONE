@@ -8,12 +8,12 @@ const AddRestaurant = () => {
                 <div className='row'>
                             <div className='col'>
                                 <input type="text" className='form-control' 
-                                placeholder='Name'/>
+                                  placeholder='Name'/>
                             </div>
 
                             <div className='col'>
                                 <input type="text" className='form-control' 
-                                placeholder='location'/>
+                                  placeholder='location'/>
                             </div>
 
                             <div className='col'>
