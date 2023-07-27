@@ -38,31 +38,17 @@ const RestaurantList = () => {
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>MacDonalds</td>
-                        <td>New York</td>
-                        <td>$$</td>
-                        <td>Rating</td>
-                        <td><button className="btn btn-warning">Edit</button></td>
-                        <td><button className="btn btn-danger">Delete</button></td>
-                    </tr>
-                    <tr>
-                        <td>Taco Bell</td>
-                        <td>London</td>
-                        <td>$$</td>
-                        <td>@fat</td>
-                        <td><button className="btn btn-warning">Edit</button></td>
-                        <td><button className="btn btn-danger">Delete</button></td>
-                    </tr>
-
-                    <tr>
-                        <td>Ckicken Republic</td>
-                        <td>Ogbomoso</td>
-                        <td>@twitter</td>
-                        <td>Rating</td>
-                        <td><button className="btn btn-warning">Edit</button></td>
-                        <td><button className="btn btn-danger">Delete</button></td>
-                    </tr>
+                     {restaurants.map((restaurant)=>(
+                        <tr>
+                            <td>{restaurant.name}</td>
+                            <td>New York</td>
+                            <td>$$</td>
+                            <td>Rating</td>
+                            <td><button className="btn btn-warning">Edit</button></td>
+                            <td><button className="btn btn-danger">Delete</button></td>
+                        </tr>
+                 
+                     ))}
                 </tbody>
             </table>
         </div>
