@@ -10,7 +10,7 @@ import { RestaurantContext } from '../ContextApi/RestaurantContextProvider';
 const RestaurantList = () => {
   const { restaurants, setRestaurants } = useContext(RestaurantContext);
 
-  let navigate = useNavigate
+  let navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,6 +25,7 @@ const RestaurantList = () => {
 
     fetchData();
   }, []);
+
 
   const handleUpdate=(id)=>{
     navigate(`/restaurant/${id}/update`);
