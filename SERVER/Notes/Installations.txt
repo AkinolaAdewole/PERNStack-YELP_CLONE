@@ -4,3 +4,4 @@ npm i nodemon
 npm i dotenv
 npm i morgan 
 npm install pg
+npm i cors

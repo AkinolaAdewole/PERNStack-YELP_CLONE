@@ -12,6 +12,7 @@ const RestaurantList = () => {
                 console.error(error);
             }
         }
+        fetchData();
     },[])
   return (
     <>
