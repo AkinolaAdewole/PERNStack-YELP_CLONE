@@ -1,11 +1,24 @@
 import React, { useState } from 'react'
+import RestaurantFinder from '../Api/RestaurantFinder';
 
 const AddRestaurant = () => {
   const[name, setName]=useState("");
   const[location, setLocation]=useState("");
   const[priceRange, setPriceRange]=useState("");
 
-  const handleSubmit=()=>{}
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    try {
+      RestaurantFinder.post("/",{
+        name,
+        location,
+        price_range:priceRange
+      })
+    } catch (error) {
+      
+    }
+    
+  }
   return (
     <div>
          <div className='mb-4'>
