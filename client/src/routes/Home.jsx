@@ -9,7 +9,6 @@ const Home = () => {
         <Header />
         <AddRestaurant />
         <RestaurantList />
-        Home! Home!! Home!!!
     </>
   )
 }

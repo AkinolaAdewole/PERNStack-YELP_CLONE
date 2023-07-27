@@ -1,8 +1,9 @@
-import React, { createContext } from 'react'
+import React, { createContext, useState } from 'react'
 
 export const RestaurantContext=createContext()
 
 const RestaurantContextProvider = (props) => {
+  const [restaurants, setRestaurant]=useState([])
   return (
     <>
        <div>
