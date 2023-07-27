@@ -23,6 +23,14 @@ const RestaurantList = () => {
     fetchData();
   }, []);
 
+  const handleDelete= async()=>{
+    try {
+        RestaurantFinder.delete(`/${id}`);
+    } catch (error) {
+        
+    }
+  }
+
   return (
     <>
       <div className='list-group'>
@@ -45,7 +53,7 @@ const RestaurantList = () => {
                 <td>{"$".repeat(restaurant.price_range)}</td>
                 <td>Rating</td>
                 <td><button className="btn btn-warning">Edit</button></td>
-                <td><button className="btn btn-danger">Delete</button></td>
+                <td><button onClick={()=>handleDelete(restaurant.id)} className="btn btn-danger">Delete</button></td>
               </tr>
             ))}
           </tbody>
