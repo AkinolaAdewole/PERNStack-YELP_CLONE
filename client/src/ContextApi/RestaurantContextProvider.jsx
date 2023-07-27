@@ -3,11 +3,11 @@ import React, { createContext, useState } from 'react'
 export const RestaurantContext=createContext()
 
 const RestaurantContextProvider = (props) => {
-  const [restaurants, setRestaurant]=useState([])
+  const [restaurants, setRestaurants]=useState([])
   return (
     <>
        <div>
-          <RestaurantContext.Provider value={{restaurants, setRestaurant}}>
+          <RestaurantContext.Provider value={{restaurants, setRestaurants}}>
             {props.children}
           </RestaurantContext.Provider>
        </div>

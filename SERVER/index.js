@@ -3,6 +3,7 @@ const express = require ("express");
 const morgan= require("morgan");
 const App = express();
 const db = require("./db");
+const cors = require('cors');
 
 // Middleware
 // App.use(morgan("dev"));
@@ -15,6 +16,7 @@ const db = require("./db");
 //     console.log(`Middleware is active`);
 // })
 
+App.use(cors());
 App.use(express.json());
 
 

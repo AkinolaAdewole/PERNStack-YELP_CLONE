@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import RestaurantFinder from '../Api/RestaurantFinder'
+import { RestaurantContext } from '../ContextApi/RestaurantContextProvider'
 
 const RestaurantList = () => {
+    const {restaurants, setRestaurants}=useContext(RestaurantContext);
 
     useEffect ( ()=>{
       const fetchData= async()=>{
             try {
                 const response= await RestaurantFinder.get("/");
+                setRestaurants(response.data.data.restaurants);
                 console.log(response);
             } catch (error) {
                 console.error(error);
@@ -17,7 +20,7 @@ const RestaurantList = () => {
   return (
     <>
         <div className='list-group'>
-            <table class="table table-hover table-dark">
+            <table className="table table-hover table-dark">
                 <thead>
                     <tr className='table-primary'>
                         <th scope="col">Restaurant</th>
