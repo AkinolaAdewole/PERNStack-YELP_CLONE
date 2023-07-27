@@ -5,14 +5,14 @@ import RestaurantDetailsPage from './routes/RestaurantDetailsPage';
 
 function App() {
   return (
-    <div>
-        <Router>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/restaurants/:id/update" element={<UpdatePage />} />
-              <Route path="/restaurants/:id" element={<RestaurantDetailsPage />} />
-            </Routes>
-    </Router>
+    <div className='container'>
+          <Router>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/restaurants/:id/update" element={<UpdatePage />} />
+                <Route path="/restaurants/:id" element={<RestaurantDetailsPage />} />
+              </Routes>
+          </Router>
     </div>
   );
 }

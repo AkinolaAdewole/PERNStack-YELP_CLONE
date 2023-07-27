@@ -26,9 +26,9 @@ const RestaurantList = () => {
                         <td><button className="btn btn-danger">Delete</button></td>
                     </tr>
                     <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
+                        <td>Taco Bell</td>
+                        <td>London</td>
+                        <td>$$</td>
                         <td>@fat</td>
                         <td><button className="btn btn-warning">Edit</button></td>
                         <td><button className="btn btn-danger">Delete</button></td>
