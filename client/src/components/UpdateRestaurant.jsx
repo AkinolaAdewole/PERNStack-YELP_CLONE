@@ -13,17 +13,17 @@ const UpdateRestaurant = (props) => {
   return (
     <div>
          <form>
-            <div className='form-group'>
+            <div className='form-group mb-3'>
                 <label htmlFor="name">Name</label>
                 <input type="text" className='form-control' placeholder='Name' />
             </div>
 
-            <div className='form-group'>
+            <div className='form-group mb-3'>
                 <label htmlFor="name">Location</label>
                 <input type="text" className='form-control' placeholder='Location' />
             </div>
 
-            <div className='form-group'>
+            <div className='form-group mb-3'>
                 <label htmlFor="name">Price Range</label>
                 <input type="number" placeholder='Price range' className='form-control' />
             </div>
