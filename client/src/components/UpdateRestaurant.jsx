@@ -1,10 +1,12 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
-const UpdateRestaurant = () => {
-    const param =useParams();
+const UpdateRestaurant = (props) => {
+    const {id} =useParams();
   return (
-    <div>UpdateRestaurant</div>
+    <div>
+         <form className='form-group'></form>
+    </div>
   )
 }
 
