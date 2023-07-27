@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const UpdateRestaurant = (props) => {
     const {id} =useParams();
+
+    const[name,setName]=useState();
+    const[location,setlocation]=useState();
+    const[priceRange,setPriceRange]=useState();
+
+    const handleUpdate=()=>{}
+
   return (
     <div>
          <form>
@@ -18,7 +25,11 @@ const UpdateRestaurant = (props) => {
 
             <div className='form-group'>
                 <label htmlFor="name">Price Range</label>
-                <input type="text" placeholder='Price range' className='form-control' />
+                <input type="number" placeholder='Price range' className='form-control' />
+            </div>
+
+            <div>
+                <button className="btn btn-primary">Update</button>
             </div>
          </form>
     </div>
