@@ -36,7 +36,7 @@ App.get("/api/v1/restaurants", async(req,res)=>{
                 restaurants:result.rows, 
             }
         });
-        console.log(result);
+        // console.log(result);
        } catch (error) {
         console.log(error);
        }
@@ -46,7 +46,7 @@ App.get("/api/v1/restaurants", async(req,res)=>{
 
 
 App.get("/api/v1/restaurants/:id", async (req, res) => {
-    console.log(req.params);
+    // console.log(req.params);
   
     // Use parameterized query to avoid SQL injection
     try {
@@ -66,13 +66,6 @@ App.get("/api/v1/restaurants/:id", async (req, res) => {
           message: 'Restaurant not found',
         });
       }
-  
-      // res.status(200).json({
-    //     status:"success",
-    //     data:{
-    //         restaurant:"Taco Bells",
-    //     }
-    // });
 
       res.status(200).json({
         status: 'success',
@@ -94,7 +87,7 @@ App.post("/api/v1/restaurants", async(req,res)=>{
     try {
         const result = await db.query("INSERT INTO restaurants(name, location, price_range) values ($1, $2, $3) returning *",
          [req.body.name, req.body.location, req.body.price_range] )
-         console.log(result);
+        //  console.log(result);
          res.status(200).json({
             status:"success",
             data:{

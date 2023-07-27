@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import RestaurantFinder from '../Api/RestaurantFinder'
 
 const RestaurantList = () => {
+
+    useEffect ( async()=>{
+        try {
+            const response= await RestaurantFinder.get("/");
+            console.log(response);
+        } catch (error) {
+            console.error(error);
+        }
+    },[])
   return (
     <>
         <div className='list-group'>
