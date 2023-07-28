@@ -19,10 +19,11 @@ const RestaurantDetailsPage = () => {
    };
    fetchData();
  },[]);
+ 
   return (
     <>
        <div>{selectedRestaurants && selectedRestaurants.name}</div>
-       <div>{<StarRating rating={3} />}</div>
+       <div>{<StarRating rating={3.5} />}</div>
     </>
   )
 }
